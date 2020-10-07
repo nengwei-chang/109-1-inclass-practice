@@ -1,0 +1,45 @@
+# NTPU-Programming-for-Data-Science
+
+# .personalInfo
+.personalInfo <- list(
+  name="noel",
+  id="410973019",
+  gmail="noelcnw@gmail.com"
+)
+
+.date=lubridate::today()
+.newRmd <- paste0(.date,".Rmd")
+.skeletonRmd <- readLines("https://raw.githubusercontent.com/tpemartin/econDS/master/inst/rmarkdown/templates/inclass-practice/skeleton/skeleton.Rmd")
+if(!file.exists(.newRmd)){
+  purrr::map_chr(
+    .skeletonRmd, ~{glue::glue(.x, .open="<<", .close=">>")}
+  ) -> .myRmd
+  writeLines(.myRmd, con=.newRmd)
+}
+a <- 15
+b = a
+y = c
+myName = "Noel"
+length(myName)
+num = 5
+vNum1 = c(2,5)
+vNum2 = c(2,vNum1)
+
+a <- 15 # 變數設定
+b <- a # 呼叫a的值，用來設定變數b的值，相當於 b <- 15
+c <- y
+
+num1<-5 # 非整數
+num2<-5L # 整數
+
+num1Vector<-c(5,6,7)
+num2Vector<-c(5L,6L,7L)
+
+char1Vector<-c("你好","How are you?")
+
+dialogue <- c('小明說："明天不用上課。"',
+              '小花說："真的嗎？"')
+
+dialogue # 顯示原始值的內容（含輸入時的引號）
+cat(dialogue, sep="\n") # 顯示給人類看（含存出來）的值，sep="\n", 不同元素換行陳列。
+writeLines(dialogue, "conversation.txt") # cat顯示的正是存出來樣貌。
